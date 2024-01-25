@@ -17,15 +17,15 @@ return {
         require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { 
-                "lua_ls", 
+            ensure_installed = {
+                "lua_ls",
                 "rust_analyzer",
                 "tsserver",
                 "pyright",
                 "ruff_lsp"
             },
             handlers = {
-                function (server_name) -- default handler (optional)
+                function(server_name) -- default handler (optional)
                     require("lspconfig")[server_name].setup {}
                 end,
                 ['lua_ls'] = function()
@@ -39,13 +39,23 @@ return {
                             }
                         }
                     })
+                end,
+                ['ruff_lsp'] = function()
+                    local lspconfig = require('lspconfig')
+                    lspconfig.ruff_lsp.setup({
+                        settings = {
+                            args = {
+                                '--format config $DOTFILES/ruff/ruff.toml'
+                            }
+                        }
+                    })
                 end
             }
         })
 
         -- Set up nvim-cmp.
         local cmp = require('cmp')
-        local cmp_select = {behavior = cmp.SelectBehavior.Select}
+        local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
         cmp.setup({
             snippet = {
