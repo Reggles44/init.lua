@@ -22,7 +22,8 @@ return {
                 "rust_analyzer",
                 "tsserver",
                 "pyright",
-                "ruff_lsp"
+                "ruff_lsp",
+                "bashls"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
