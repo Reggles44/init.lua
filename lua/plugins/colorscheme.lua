@@ -1,29 +1,13 @@
-return  {
+return {
 
   {
-    "folke/tokyonight.nvim",
+    'folke/tokyonight.nvim',
+    lazy = false,
+    priority = 1000,
     config = function()
-      require("tokyonight").setup({
-        style = "storm",
-        terminal_colors = true,
-        styles = {
-          comments = { italic = false },
-          keywords = { italic = false },
-
-          sidebars = "dark",
-          floats = "dark",
-        }
-
-      })
-    end
+      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.hi 'Comment gui=none'
+    end,
   },
 
-  {
-
-    'rose-pine/neovim',
-    name = 'rose-pine',
-    config = function() 
-      vim.cmd("colorscheme rose-pine"); 
-    end
-  }
-} 
+}
