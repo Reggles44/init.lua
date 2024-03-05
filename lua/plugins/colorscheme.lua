@@ -1,5 +1,4 @@
 return {
-
   {
     'folke/tokyonight.nvim',
     lazy = false,
@@ -9,5 +8,4 @@ return {
       vim.cmd.hi 'Comment gui=none'
     end,
   },
-
 }
